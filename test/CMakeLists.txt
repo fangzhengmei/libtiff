@@ -200,6 +200,12 @@ set_target_properties(test_directory PROPERTIES LINKER_LANGUAGE CXX)
 target_link_libraries(test_directory PRIVATE tiff tiff_port)
 list(APPEND simple_tests test_directory)
 
+add_executable(test_directory_conflicts ../placeholder.h)
+target_sources(test_directory_conflicts PRIVATE test_directory_conflicts.c)
+set_target_properties(test_directory_conflicts PROPERTIES LINKER_LANGUAGE CXX)
+target_link_libraries(test_directory_conflicts PRIVATE tiff tiff_port)
+list(APPEND simple_tests test_directory_conflicts)
+
 add_executable(test_IFD_enlargement ../placeholder.h)
 target_sources(test_IFD_enlargement PRIVATE test_IFD_enlargement.c)
 set_target_properties(test_IFD_enlargement PROPERTIES LINKER_LANGUAGE CXX)

@@ -38,6 +38,11 @@ If the next directory was successfully read, 1 is returned. Otherwise, 0 is
 returned if an error was encountered, or if there are no more directories to
 be read.
 
+When directory parsing fails, no partially decoded directory is retained as
+the active directory. The next IFD offset read from the rejected directory is
+preserved, so another call can continue with the following image without using
+state from the failed directory.
+
 Diagnostics
 -----------
 
@@ -54,6 +59,17 @@ Likewise, warning messages are directed to the :c:func:`TIFFWarningExtR` routine
   The tag entry in the directory had an incorrect data type.
   For example, an ``ImageDescription`` tag with a ``SHORT``
   data type.
+
+``Incompatible type %d for "%s"``:
+
+  A tag that controls image geometry, pixel interpretation or strile
+  location used a type that cannot be converted safely to the tag's value.
+
+``Conflicting value for duplicate tag "%s"``:
+
+  Two entries for a critical tag did not decode to the same value. The
+  directory is rejected so pixel data cannot be interpreted using an
+  ambiguous width, length or strile location.
 
 ``TIFF directory is missing required "%s" field``:
 

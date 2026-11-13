@@ -249,6 +249,9 @@ static TIFFDirEntry *TIFFReadDirectoryFindEntry(TIFF *tif, TIFFDirEntry *dir,
                                                 uint16_t tagid);
 static void TIFFReadDirectoryFindFieldInfo(TIFF *tif, uint16_t tagid,
                                            uint32_t *fii);
+static int TIFFReadDirectoryCheckCriticalTags(TIFF *tif, TIFFDirEntry *dir,
+                                              uint16_t dircount);
+static void TIFFReadDirectoryResetOnError(TIFF *tif, TIFFDirEntry *dir);
 
 static int EstimateStripByteCounts(TIFF *tif, TIFFDirEntry *dir,
                                    uint16_t dircount);
@@ -4328,6 +4331,367 @@ static void CalcFinalIFDdatasizeReading(TIFF *tif, uint16_t dircount)
         tif->tif_dir.td_dirdatasize_read = 8U + dircount * 20U + 8U + size;
 } /*-- CalcFinalIFDdatasizeReading() --*/
 
+static int TIFFReadDirectoryIsCriticalTag(uint16_t tag)
+{
+    switch (tag)
+    {
+        case TIFFTAG_IMAGEWIDTH:
+        case TIFFTAG_IMAGELENGTH:
+        case TIFFTAG_IMAGEDEPTH:
+        case TIFFTAG_TILEWIDTH:
+        case TIFFTAG_TILELENGTH:
+        case TIFFTAG_TILEDEPTH:
+        case TIFFTAG_BITSPERSAMPLE:
+        case TIFFTAG_COMPRESSION:
+        case TIFFTAG_PHOTOMETRIC:
+        case TIFFTAG_SAMPLESPERPIXEL:
+        case TIFFTAG_SAMPLEFORMAT:
+        case TIFFTAG_PLANARCONFIG:
+        case TIFFTAG_EXTRASAMPLES:
+        case TIFFTAG_ROWSPERSTRIP:
+        case TIFFTAG_STRIPOFFSETS:
+        case TIFFTAG_STRIPBYTECOUNTS:
+        case TIFFTAG_TILEOFFSETS:
+        case TIFFTAG_TILEBYTECOUNTS:
+            return 1;
+        default:
+            return 0;
+    }
+}
+
+static int TIFFReadDirectoryIsStrileTag(uint16_t tag)
+{
+    switch (tag)
+    {
+        case TIFFTAG_STRIPOFFSETS:
+        case TIFFTAG_STRIPBYTECOUNTS:
+        case TIFFTAG_TILEOFFSETS:
+        case TIFFTAG_TILEBYTECOUNTS:
+            return 1;
+        default:
+            return 0;
+    }
+}
+
+static int TIFFReadDirectoryIsCriticalArrayTag(uint16_t tag)
+{
+    return TIFFReadDirectoryIsStrileTag(tag) ||
+           tag == TIFFTAG_EXTRASAMPLES ||
+           tag == TIFFTAG_BITSPERSAMPLE ||
+           tag == TIFFTAG_SAMPLEFORMAT;
+}
+
+static int TIFFReadDirectoryCriticalTypeIsSigned(uint16_t type)
+{
+    return type == TIFF_SBYTE || type == TIFF_SSHORT ||
+           type == TIFF_SLONG || type == TIFF_SLONG8;
+}
+
+static int TIFFReadDirectoryCriticalTypeIsValid(const TIFF *tif,
+                                                const TIFFDirEntry *dp)
+{
+    const int is_strile = TIFFReadDirectoryIsStrileTag(dp->tdir_tag);
+
+    /* Zero-count strile placeholders are completed by the read/write code. */
+    if (is_strile && tif->tif_mode == O_RDWR && dp->tdir_count == 0 &&
+        dp->tdir_type == TIFF_NOTYPE)
+        return 1;
+    if (dp->tdir_count == 0)
+        return 0;
+
+    /* The scalar critical tags represent unsigned dimensions, sample
+     * parameters, enum values and file offsets. Arrays retain the existing
+     * signed-to-unsigned range checks in their fetch/conversion routines. */
+    if (!TIFFReadDirectoryIsCriticalArrayTag(dp->tdir_tag) &&
+        TIFFReadDirectoryCriticalTypeIsSigned(dp->tdir_type))
+    {
+        return 0;
+    }
+
+    switch (dp->tdir_type)
+    {
+        case TIFF_BYTE:
+        case TIFF_SBYTE:
+        case TIFF_SHORT:
+        case TIFF_SSHORT:
+        case TIFF_LONG:
+        case TIFF_SLONG:
+        case TIFF_LONG8:
+        case TIFF_SLONG8:
+            break;
+        case TIFF_IFD:
+        case TIFF_IFD8:
+            /* IFD numbers use the same integer representation as offsets. */
+            if (!is_strile)
+                return 0;
+            break;
+        default:
+            return 0;
+    }
+
+    /* Classic TIFF has no 64-bit on-disk type. BigTIFF still accepts the
+     * shorter types because the existing readers widen them losslessly. */
+    if (!(tif->tif_flags & TIFF_BIGTIFF) &&
+        (dp->tdir_type == TIFF_LONG8 || dp->tdir_type == TIFF_SLONG8 ||
+         dp->tdir_type == TIFF_IFD8))
+    {
+        return 0;
+    }
+
+    return 1;
+}
+
+static const char *TIFFReadDirectoryTagName(TIFF *tif, uint16_t tag)
+{
+    const TIFFField *fip = TIFFFieldWithTag(tif, tag);
+    return fip ? fip->field_name : "unknown tag";
+}
+
+static int TIFFReadDirectoryCriticalEntriesEqual(TIFF *tif,
+                                                 const TIFFDirEntry *a,
+                                                 const TIFFDirEntry *b)
+{
+    enum TIFFReadDirEntryErr err;
+    const char *module = "TIFFReadDirectory";
+    const char *tagname = TIFFReadDirectoryTagName(tif, a->tdir_tag);
+
+    if (a->tdir_count != b->tdir_count)
+    {
+        TIFFErrorExtR(tif, module,
+                      "Conflicting count for duplicate tag \"%s\"", tagname);
+        return 0;
+    }
+    if (a->tdir_count == 0)
+        return 1;
+
+    if (TIFFReadDirectoryIsCriticalArrayTag(a->tdir_tag))
+    {
+        if (a->tdir_tag == TIFFTAG_EXTRASAMPLES ||
+            a->tdir_tag == TIFFTAG_BITSPERSAMPLE ||
+            a->tdir_tag == TIFFTAG_SAMPLEFORMAT)
+        {
+            uint16_t *values_a = NULL;
+            uint16_t *values_b = NULL;
+            uint32_t count_a = 0;
+            uint32_t count_b = 0;
+            uint32_t i;
+
+            err = TIFFReadDirEntryShortArray(tif, (TIFFDirEntry *)a,
+                                              &values_a);
+            if (err == TIFFReadDirEntryErrOk)
+                err = TIFFReadDirEntryShortArray(
+                    tif, (TIFFDirEntry *)b, &values_b);
+            if (err != TIFFReadDirEntryErrOk)
+            {
+                TIFFReadDirEntryOutputErr(tif, err, module, tagname, 0);
+                _TIFFfreeExt(tif, values_a);
+                _TIFFfreeExt(tif, values_b);
+                return 0;
+            }
+
+            count_a = (uint32_t)a->tdir_count;
+            count_b = (uint32_t)b->tdir_count;
+            if (count_a != count_b || count_a == 0)
+            {
+                _TIFFfreeExt(tif, values_a);
+                _TIFFfreeExt(tif, values_b);
+                return 0;
+            }
+            for (i = 0; i < count_a; i++)
+            {
+                if (values_a[i] != values_b[i])
+                {
+                    TIFFErrorExtR(tif, module,
+                                  "Conflicting value for duplicate tag \"%s\"",
+                                  tagname);
+                    _TIFFfreeExt(tif, values_a);
+                    _TIFFfreeExt(tif, values_b);
+                    return 0;
+                }
+            }
+            _TIFFfreeExt(tif, values_a);
+            _TIFFfreeExt(tif, values_b);
+            return 1;
+        }
+
+        {
+            uint64_t *values_a = NULL;
+            uint64_t *values_b = NULL;
+            uint32_t count_a = 0;
+            uint32_t count_b = 0;
+            uint32_t i;
+
+            err = TIFFReadDirEntryLong8Array(tif, (TIFFDirEntry *)a,
+                                              &values_a);
+            if (err == TIFFReadDirEntryErrOk)
+                err = TIFFReadDirEntryLong8Array(tif, (TIFFDirEntry *)b,
+                                                  &values_b);
+            if (err != TIFFReadDirEntryErrOk)
+            {
+                TIFFReadDirEntryOutputErr(tif, err, module, tagname, 0);
+                _TIFFfreeExt(tif, values_a);
+                _TIFFfreeExt(tif, values_b);
+                return 0;
+            }
+
+            count_a = (uint32_t)a->tdir_count;
+            count_b = (uint32_t)b->tdir_count;
+            if (count_a != count_b || count_a == 0)
+            {
+                _TIFFfreeExt(tif, values_a);
+                _TIFFfreeExt(tif, values_b);
+                return 0;
+            }
+            for (i = 0; i < count_a; i++)
+            {
+                if (values_a[i] != values_b[i])
+                {
+                    TIFFErrorExtR(tif, module,
+                                  "Conflicting value for duplicate tag \"%s\"",
+                                  tagname);
+                    _TIFFfreeExt(tif, values_a);
+                    _TIFFfreeExt(tif, values_b);
+                    return 0;
+                }
+            }
+            _TIFFfreeExt(tif, values_a);
+            _TIFFfreeExt(tif, values_b);
+            return 1;
+        }
+    }
+
+    if (a->tdir_count != 1)
+    {
+        TIFFErrorExtR(tif, module,
+                      "Incorrect count for duplicate tag \"%s\"", tagname);
+        return 0;
+    }
+
+    switch (a->tdir_tag)
+    {
+        case TIFFTAG_BITSPERSAMPLE:
+        case TIFFTAG_COMPRESSION:
+        case TIFFTAG_PHOTOMETRIC:
+        case TIFFTAG_SAMPLESPERPIXEL:
+        case TIFFTAG_SAMPLEFORMAT:
+        case TIFFTAG_PLANARCONFIG:
+        {
+            uint16_t value_a = 0;
+            uint16_t value_b = 0;
+            err = TIFFReadDirEntryShort(tif, (TIFFDirEntry *)a, &value_a);
+            if (err == TIFFReadDirEntryErrOk)
+                err = TIFFReadDirEntryShort(tif, (TIFFDirEntry *)b,
+                                             &value_b);
+            if (err != TIFFReadDirEntryErrOk)
+            {
+                TIFFReadDirEntryOutputErr(tif, err, module, tagname, 0);
+                return 0;
+            }
+            if (value_a != value_b)
+            {
+                TIFFErrorExtR(tif, module,
+                              "Conflicting value for duplicate tag \"%s\"",
+                              tagname);
+                return 0;
+            }
+            return 1;
+        }
+        default:
+        {
+            uint32_t value_a = 0;
+            uint32_t value_b = 0;
+            err = TIFFReadDirEntryLong(tif, (TIFFDirEntry *)a, &value_a);
+            if (err == TIFFReadDirEntryErrOk)
+                err = TIFFReadDirEntryLong(tif, (TIFFDirEntry *)b,
+                                            &value_b);
+            if (err != TIFFReadDirEntryErrOk)
+            {
+                TIFFReadDirEntryOutputErr(tif, err, module, tagname, 0);
+                return 0;
+            }
+            if (value_a != value_b)
+            {
+                TIFFErrorExtR(
+                    tif, module,
+                    "Conflicting value for duplicate tag \"%s\"", tagname);
+                return 0;
+            }
+            return 1;
+        }
+    }
+}
+
+static int TIFFReadDirectoryCheckCriticalTags(TIFF *tif, TIFFDirEntry *dir,
+                                              uint16_t dircount)
+{
+    static const char module[] = "TIFFReadDirectory";
+    uint16_t i;
+    int has_strip_offsets = 0;
+    int has_tile_offsets = 0;
+    int has_strip_bytecounts = 0;
+    int has_tile_bytecounts = 0;
+
+    for (i = 0; i < dircount; i++)
+    {
+        TIFFDirEntry *dp = &dir[i];
+        const char *tagname;
+        uint16_t j;
+
+        if (!TIFFReadDirectoryIsCriticalTag(dp->tdir_tag))
+            continue;
+
+        if (dp->tdir_tag == TIFFTAG_STRIPOFFSETS)
+            has_strip_offsets = 1;
+        else if (dp->tdir_tag == TIFFTAG_TILEOFFSETS)
+            has_tile_offsets = 1;
+        else if (dp->tdir_tag == TIFFTAG_STRIPBYTECOUNTS)
+            has_strip_bytecounts = 1;
+        else if (dp->tdir_tag == TIFFTAG_TILEBYTECOUNTS)
+            has_tile_bytecounts = 1;
+
+        tagname = TIFFReadDirectoryTagName(tif, dp->tdir_tag);
+        if (!TIFFReadDirectoryCriticalTypeIsValid(tif, dp))
+        {
+            TIFFErrorExtR(tif, module,
+                          "Incompatible type %" PRIu16 " for \"%s\"",
+                          dp->tdir_type, tagname);
+            return 0;
+        }
+
+        for (j = 0; j < i; j++)
+        {
+            if (dir[j].tdir_tag == dp->tdir_tag &&
+                !TIFFReadDirectoryCriticalEntriesEqual(tif, &dir[j], dp))
+            {
+                return 0;
+            }
+        }
+    }
+
+    if ((has_strip_offsets && has_tile_offsets) ||
+        (has_strip_bytecounts && has_tile_bytecounts))
+    {
+        TIFFErrorExtR(tif, module,
+                      "Conflicting strip and tile location tags");
+        return 0;
+    }
+
+    return 1;
+}
+
+static void TIFFReadDirectoryResetOnError(TIFF *tif, TIFFDirEntry *dir)
+{
+    if (dir)
+        _TIFFfreeExt(tif, dir);
+
+    /* A rejected IFD must never leave partially decoded geometry or
+     * strile pointers in the active directory. Reset it while retaining
+     * tif_nextdiroff, which allows the caller to continue with the next
+     * IFD. */
+    TIFFFreeDirectory(tif);
+    TIFFDefaultDirectory(tif);
+}
+
 /*
  * Read the next TIFF directory from a file and convert it to the internal
  * format. We read directories sequentially.
@@ -4385,6 +4749,12 @@ int TIFFReadDirectory(TIFF *tif)
         tif->tif_curdir++;
 
     TIFFReadDirectoryCheckOrder(tif, dir, dircount);
+
+    if (!TIFFReadDirectoryCheckCriticalTags(tif, dir, dircount))
+    {
+        TIFFReadDirectoryResetOnError(tif, dir);
+        return 0;
+    }
 
     /*
      * Mark duplicates of any tag to be ignored (bugzilla 1994)
@@ -5279,7 +5649,7 @@ int TIFFReadDirectory(TIFF *tif)
     if (!tif->tif_dir.td_scanlinesize)
     {
         TIFFErrorExtR(tif, module, "Cannot handle zero scanline size");
-        return (0);
+        goto bad;
     }
 
     if (isTiled(tif))
@@ -5288,7 +5658,7 @@ int TIFFReadDirectory(TIFF *tif)
         if (!tif->tif_dir.td_tilesize)
         {
             TIFFErrorExtR(tif, module, "Cannot handle zero tile size");
-            return (0);
+            goto bad;
         }
     }
     else
@@ -5296,13 +5666,12 @@ int TIFFReadDirectory(TIFF *tif)
         if (!TIFFStripSize(tif))
         {
             TIFFErrorExtR(tif, module, "Cannot handle zero strip size");
-            return (0);
+            goto bad;
         }
     }
     return (1);
 bad:
-    if (dir)
-        _TIFFfreeExt(tif, dir);
+    TIFFReadDirectoryResetOnError(tif, dir);
     return (0);
 } /*-- TIFFReadDirectory() --*/
 

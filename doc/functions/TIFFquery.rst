@@ -69,6 +69,8 @@ b) IFD index of last IFD written in the file.
 c) IFD index of IFD read from file into memory (=active IFD),
    even if IFD is corrupt and TIFFReadDirectory() returns 0.
    Then the current directory offset is the offset of the IFD in the file.
+   If an unsafe IFD is rejected, its metadata is reset rather than retaining
+   partially decoded geometry or strile state.
 d) IFD index „0“, whenever a custom directory or an unchained SubIFD
    was read.
 
