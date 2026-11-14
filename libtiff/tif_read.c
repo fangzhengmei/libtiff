@@ -187,8 +187,18 @@ static int TIFFFillStripPartial(TIFF *tif, int strip, tmsize_t read_ahead,
         read_ahead_mod = read_ahead;
     if (read_ahead_mod > tif->tif_rawdatasize)
     {
-        assert(restart);
-
+        /*
+         * The read-ahead window does not fit in the current raw data buffer.
+         * When (re)starting a strip the buffer is grown below.  But a previous
+         * whole-strip load (TIFFFillStrip) may have settled for a smaller
+         * buffer than this partial read needs - for instance when a corrupt
+         * strip byte count was clamped to a sane value, leaving
+         * tif_rawdatasize smaller than read_ahead_mod.  In that situation the
+         * decoder cannot resume from an arbitrary point in the middle of the
+         * strip, so restart the strip from its beginning instead.  This keeps
+         * the whole-block and partial read paths consistent instead of
+         * aborting on the assert this used to have.
+         */
         tif->tif_dir.td_curstrip = NOSTRIP;
         if ((tif->tif_flags & TIFF_MYBUFFER) == 0)
         {
@@ -197,6 +207,7 @@ static int TIFFFillStripPartial(TIFF *tif, int strip, tmsize_t read_ahead,
                           strip);
             return (0);
         }
+        restart = 1;
     }
 
     if (restart)
@@ -1142,13 +1153,19 @@ tmsize_t _TIFFReadEncodedTileAndAllocBuffer(TIFF *tif, uint32_t tile,
     /* Cf https://gitlab.com/libtiff/libtiff/-/issues/479 */
     if (td->td_compression == COMPRESSION_NONE)
     {
-        if (tif->tif_rawdatasize != tilesize)
+        /* Compare the amount of data actually loaded for this tile, not the
+         * capacity of the raw buffer: the latter is rounded up (e.g. to a
+         * 1024 byte boundary), so an exact capacity comparison rejects
+         * perfectly valid small uncompressed tiles when the file is not
+         * memory-mapped.  The byte count of an uncompressed tile must equal
+         * its tile size; anything else means the file is malformed. */
+        if (tif->tif_rawdataloaded != tilesize)
         {
             TIFFErrorExtR(tif, TIFFFileName(tif),
                           "Invalid tile byte count for tile %u. "
                           "Expected %" PRIu64 ", got %" PRIu64,
                           tile, (uint64_t)tilesize,
-                          (uint64_t)tif->tif_rawdatasize);
+                          (uint64_t)tif->tif_rawdataloaded);
             return ((tmsize_t)(-1));
         }
     }
@@ -1228,17 +1245,25 @@ static tmsize_t TIFFReadRawTile1(TIFF *tif, uint32_t tile, void *buf,
     }
     else
     {
-        tmsize_t ma, mb;
+        tmsize_t ma = 0;
         tmsize_t n;
-        ma = (tmsize_t)TIFFGetStrileOffset(tif, tile);
-        mb = ma + size;
         if ((TIFFGetStrileOffset(tif, tile) > (uint64_t)TIFF_TMSIZE_T_MAX) ||
-            (ma > tif->tif_size))
+            ((ma = (tmsize_t)TIFFGetStrileOffset(tif, tile)) > tif->tif_size))
+        {
             n = 0;
-        else if ((mb < ma) || (mb < size) || (mb > tif->tif_size))
-            n = tif->tif_size - ma;
+        }
+        else if (ma > TIFF_TMSIZE_T_MAX - size)
+        {
+            n = 0;
+        }
         else
-            n = size;
+        {
+            tmsize_t mb = ma + size;
+            if (mb > tif->tif_size)
+                n = tif->tif_size - ma;
+            else
+                n = size;
+        }
         if (n != size)
         {
             TIFFErrorExtR(tif, module,
