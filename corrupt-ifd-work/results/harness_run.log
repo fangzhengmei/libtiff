@@ -1,0 +1,708 @@
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/bigtiff_overflow_count.tif ====
+  [mmap  mode]
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 16
+    TIFFOpen FAILED (errors=2 warnings=0) - first IFD could not be read, no directories available
+  [stream mode]
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 16
+    TIFFOpen FAILED (errors=2 warnings=0) - first IFD could not be read, no directories available
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/bigtiff_tail_past_eof.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff4d4d4d px1=0xff4d4d4d px2=0xff4d4d4d px3=0xff4d4d4d
+    -- TIFFReadDirectory #1 (nextdiroff=328)
+    [ERROR] Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 328
+    TIFFReadDirectory #1 -> 0 (new errors=2 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 328
+    TIFFSetDirectory(1) -> 0
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_dir.c:1950: /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/bigtiff_tail_past_eof.tif: Error fetching directory count
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=5 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff4d4d4d px1=0xff4d4d4d px2=0xff4d4d4d px3=0xff4d4d4d
+    -- TIFFReadDirectory #1 (nextdiroff=328)
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/bigtiff_tail_past_eof.tif: Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 328
+    TIFFReadDirectory #1 -> 0 (new errors=2 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/bigtiff_tail_past_eof.tif: Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 328
+    TIFFSetDirectory(1) -> 0
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_dir.c:2020: /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/bigtiff_tail_past_eof.tif: Error fetching directory count
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=5 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/bigtiff_valid.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff4d4d4d px1=0xff4d4d4d px2=0xff4d4d4d px3=0xff4d4d4d
+    -- TIFFReadDirectory #1 (nextdiroff=0)
+    TIFFReadDirectory #1 -> 0 (new errors=0 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 0
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=0 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff4d4d4d px1=0xff4d4d4d px2=0xff4d4d4d px3=0xff4d4d4d
+    -- TIFFReadDirectory #1 (nextdiroff=0)
+    TIFFReadDirectory #1 -> 0 (new errors=0 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 0
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=0 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd0_entry_oob.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    [ERROR] Read error on strip 0; got 18446744069414584604 bytes, expected 16
+    dir 0: TIFFReadRGBAImage -> 0
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    end of chain (dirs walked=2)
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=1 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    [ERROR] Read error at scanline 4294967295; got 0 bytes, expected 16
+    dir 0: TIFFReadRGBAImage -> 0
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    end of chain (dirs walked=2)
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=1 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd0_overflow_count.tif ====
+  [mmap  mode]
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 8
+    TIFFOpen FAILED (errors=2 warnings=0) - first IFD could not be read, no directories available
+  [stream mode]
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 8
+    TIFFOpen FAILED (errors=2 warnings=0) - first IFD could not be read, no directories available
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd0_self_loop.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=8)
+    [WARN ] TIFF directory 0 has IFD looping to directory 0 at offset 0x8 (8)
+    TIFFReadDirectory #1 -> 0 (new errors=0 warnings=1)
+    chain stopped at dir 1; TIFFLastDirectory=0 nextdiroff=8
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [WARN ] TIFF directory 0 has IFD looping to directory 0 at offset 0x8 (8)
+    [WARN ] the next directory 1 at offset 0x8 (8) might be an IFD loop. Treating directory 0 as last directory
+    TIFFSetDirectory(1) -> 0
+    [WARN ] TIFF directory 0 has IFD looping to directory 0 at offset 0x8 (8)
+    [WARN ] the next directory 1 at offset 0x8 (8) might be an IFD loop. Treating directory 0 as last directory
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=0 warnings=5
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=8)
+    [WARN ] TIFF directory 0 has IFD looping to directory 0 at offset 0x8 (8)
+    TIFFReadDirectory #1 -> 0 (new errors=0 warnings=1)
+    chain stopped at dir 1; TIFFLastDirectory=0 nextdiroff=8
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [WARN ] TIFF directory 0 has IFD looping to directory 0 at offset 0x8 (8)
+    [WARN ] the next directory 1 at offset 0x8 (8) might be an IFD loop. Treating directory 0 as last directory
+    TIFFSetDirectory(1) -> 0
+    [WARN ] TIFF directory 0 has IFD looping to directory 0 at offset 0x8 (8)
+    [WARN ] the next directory 1 at offset 0x8 (8) might be an IFD loop. Treating directory 0 as last directory
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=0 warnings=5
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd0_short_count.tif ====
+  [mmap  mode]
+    [ERROR] TIFF directory is missing required "StripOffsets" field
+    TIFFOpen FAILED (errors=1 warnings=0) - first IFD could not be read, no directories available
+  [stream mode]
+    [ERROR] TIFF directory is missing required "StripOffsets" field
+    TIFFOpen FAILED (errors=1 warnings=0) - first IFD could not be read, no directories available
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd0_truncated.tif ====
+  [mmap  mode]
+    [WARN ] Requested memory size for TIFF directory of 108 is greater than filesize 10. Memory not allocated, TIFF directory not read
+    [ERROR] Failed to read directory at offset 8
+    TIFFOpen FAILED (errors=1 warnings=1) - first IFD could not be read, no directories available
+  [stream mode]
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd0_truncated.tif: Can not read TIFF directory
+    [ERROR] Failed to read directory at offset 8
+    TIFFOpen FAILED (errors=2 warnings=0) - first IFD could not be read, no directories available
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd0_unknown_type.tif ====
+  [mmap  mode]
+    [ERROR] Incompatible type for "ImageWidth"
+    TIFFOpen FAILED (errors=1 warnings=0) - first IFD could not be read, no directories available
+  [stream mode]
+    [ERROR] Incompatible type for "ImageWidth"
+    TIFFOpen FAILED (errors=1 warnings=0) - first IFD could not be read, no directories available
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd1_entry_oob.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    [ERROR] Read error on strip 0; got 18446744069414584604 bytes, expected 16
+    dir 1: TIFFReadRGBAImage -> 0
+    end of chain (dirs walked=2)
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=1 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    [ERROR] Read error at scanline 4294967295; got 0 bytes, expected 16
+    dir 1: TIFFReadRGBAImage -> 0
+    end of chain (dirs walked=2)
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=1 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd1_overflow_count.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 122
+    TIFFReadDirectory #1 -> 0 (new errors=2 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 122
+    TIFFSetDirectory(1) -> 0
+    [ERROR] Error fetching directory link
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=5 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 122
+    TIFFReadDirectory #1 -> 0 (new errors=2 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 122
+    TIFFSetDirectory(1) -> 0
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd1_overflow_count.tif: Error fetching directory link
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=5 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd1_short_count.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] TIFF directory is missing required "StripOffsets" field
+    TIFFReadDirectory #1 -> 0 (new errors=1 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=0 nextdiroff=196865
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] TIFF directory is missing required "StripOffsets" field
+    TIFFSetDirectory(1) -> 0
+    [ERROR] Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 196865
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=4 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] TIFF directory is missing required "StripOffsets" field
+    TIFFReadDirectory #1 -> 0 (new errors=1 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=0 nextdiroff=196865
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] TIFF directory is missing required "StripOffsets" field
+    TIFFSetDirectory(1) -> 0
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd1_short_count.tif: Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 196865
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=4 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd1_truncated.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    [ERROR] Read error on strip 0; got 18446744073709551512 bytes, expected 16
+    dir 0: TIFFReadRGBAImage -> 0
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] Can not read TIFF directory
+    [ERROR] Failed to read directory at offset 122
+    TIFFReadDirectory #1 -> 0 (new errors=2 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] Can not read TIFF directory
+    [ERROR] Failed to read directory at offset 122
+    TIFFSetDirectory(1) -> 0
+    [ERROR] Error fetching directory link
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=6 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    [ERROR] Read error at scanline 4294967295; got 0 bytes, expected 16
+    dir 0: TIFFReadRGBAImage -> 0
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd1_truncated.tif: Can not read TIFF directory
+    [ERROR] Failed to read directory at offset 122
+    TIFFReadDirectory #1 -> 0 (new errors=2 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd1_truncated.tif: Can not read TIFF directory
+    [ERROR] Failed to read directory at offset 122
+    TIFFSetDirectory(1) -> 0
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd1_truncated.tif: Error fetching directory link
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=6 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/ifd1_unknown_type.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] Incompatible type for "ImageLength"
+    TIFFReadDirectory #1 -> 0 (new errors=1 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] Incompatible type for "ImageLength"
+    TIFFSetDirectory(1) -> 0
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=2 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] Incompatible type for "ImageLength"
+    TIFFReadDirectory #1 -> 0 (new errors=1 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] Incompatible type for "ImageLength"
+    TIFFSetDirectory(1) -> 0
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=2 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/tail_loop_to_ifd0.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    -- TIFFReadDirectory #2 (nextdiroff=8)
+    [WARN ] TIFF directory 1 has IFD looping to directory 0 at offset 0x8 (8)
+    TIFFReadDirectory #2 -> 0 (new errors=0 warnings=1)
+    chain stopped at dir 2; TIFFLastDirectory=0 nextdiroff=8
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    [WARN ] TIFF directory 1 has IFD looping to directory 0 at offset 0x8 (8)
+    [WARN ] the next directory 2 at offset 0x8 (8) might be an IFD loop. Treating directory 1 as last directory
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=0 warnings=3
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    -- TIFFReadDirectory #2 (nextdiroff=8)
+    [WARN ] TIFF directory 1 has IFD looping to directory 0 at offset 0x8 (8)
+    TIFFReadDirectory #2 -> 0 (new errors=0 warnings=1)
+    chain stopped at dir 2; TIFFLastDirectory=0 nextdiroff=8
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    [WARN ] TIFF directory 1 has IFD looping to directory 0 at offset 0x8 (8)
+    [WARN ] the next directory 2 at offset 0x8 (8) might be an IFD loop. Treating directory 1 as last directory
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=0 warnings=3
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/tail_ptr_into_pixels.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    -- TIFFReadDirectory #2 (nextdiroff=240)
+    [WARN ] Requested memory size for TIFF directory of 15408 is greater than filesize 268. Memory not allocated, TIFF directory not read
+    [ERROR] Failed to read directory at offset 240
+    TIFFReadDirectory #2 -> 0 (new errors=1 warnings=1)
+    chain stopped at dir 2; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    [WARN ] Requested memory size for TIFF directory of 15408 is greater than filesize 268. Memory not allocated, TIFF directory not read
+    [ERROR] Failed to read directory at offset 240
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=2 warnings=2
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    -- TIFFReadDirectory #2 (nextdiroff=240)
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/tail_ptr_into_pixels.tif: Can not read TIFF directory
+    [ERROR] Failed to read directory at offset 240
+    TIFFReadDirectory #2 -> 0 (new errors=2 warnings=0)
+    chain stopped at dir 2; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/tail_ptr_into_pixels.tif: Can not read TIFF directory
+    [ERROR] Failed to read directory at offset 240
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=4 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/tail_ptr_past_eof.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    -- TIFFReadDirectory #2 (nextdiroff=332)
+    [ERROR] Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 332
+    TIFFReadDirectory #2 -> 0 (new errors=2 warnings=0)
+    chain stopped at dir 2; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    [ERROR] Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 332
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=4 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    -- TIFFReadDirectory #2 (nextdiroff=332)
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/tail_ptr_past_eof.tif: Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 332
+    TIFFReadDirectory #2 -> 0 (new errors=2 warnings=0)
+    chain stopped at dir 2; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/tail_ptr_past_eof.tif: Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 332
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=4 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/tail_self_loop.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    -- TIFFReadDirectory #2 (nextdiroff=122)
+    [WARN ] TIFF directory 1 has IFD looping to directory 1 at offset 0x7a (122)
+    TIFFReadDirectory #2 -> 0 (new errors=0 warnings=1)
+    chain stopped at dir 2; TIFFLastDirectory=0 nextdiroff=122
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    [WARN ] TIFF directory 1 has IFD looping to directory 1 at offset 0x7a (122)
+    [WARN ] the next directory 2 at offset 0x7a (122) might be an IFD loop. Treating directory 1 as last directory
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=0 warnings=3
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    -- TIFFReadDirectory #2 (nextdiroff=122)
+    [WARN ] TIFF directory 1 has IFD looping to directory 1 at offset 0x7a (122)
+    TIFFReadDirectory #2 -> 0 (new errors=0 warnings=1)
+    chain stopped at dir 2; TIFFLastDirectory=0 nextdiroff=122
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    [WARN ] TIFF directory 1 has IFD looping to directory 1 at offset 0x7a (122)
+    [WARN ] the next directory 2 at offset 0x7a (122) might be an IFD loop. Treating directory 1 as last directory
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=0 warnings=3
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/three_ifd_all_valid.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    -- TIFFReadDirectory #2 (nextdiroff=268)
+    TIFFReadDirectory #2 -> 1 (new errors=0 warnings=0)
+    dir 2: fields 4x4
+    dir 2: TIFFReadRGBAImage -> 1 px0=0xffc8c8c8 px1=0xffc8c8c8 px2=0xffc8c8c8 px3=0xffc8c8c8
+    end of chain (dirs walked=3)
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    TIFFSetDirectory(2) -> 1
+  TOTAL errors=0 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    -- TIFFReadDirectory #2 (nextdiroff=268)
+    TIFFReadDirectory #2 -> 1 (new errors=0 warnings=0)
+    dir 2: fields 4x4
+    dir 2: TIFFReadRGBAImage -> 1 px0=0xffc8c8c8 px1=0xffc8c8c8 px2=0xffc8c8c8 px3=0xffc8c8c8
+    end of chain (dirs walked=3)
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    TIFFSetDirectory(2) -> 1
+  TOTAL errors=0 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/three_ifd_middle_overflow.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 122
+    TIFFReadDirectory #1 -> 0 (new errors=2 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 122
+    TIFFSetDirectory(1) -> 0
+    [ERROR] Error fetching directory link
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=5 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 122
+    TIFFReadDirectory #1 -> 0 (new errors=2 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 122
+    TIFFSetDirectory(1) -> 0
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/three_ifd_middle_overflow.tif: Error fetching directory link
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=5 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/three_ifd_middle_short.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] TIFF directory is missing required "StripOffsets" field
+    TIFFReadDirectory #1 -> 0 (new errors=1 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=0 nextdiroff=196865
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] TIFF directory is missing required "StripOffsets" field
+    TIFFSetDirectory(1) -> 0
+    [ERROR] Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 196865
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=4 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] TIFF directory is missing required "StripOffsets" field
+    TIFFReadDirectory #1 -> 0 (new errors=1 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=0 nextdiroff=196865
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] TIFF directory is missing required "StripOffsets" field
+    TIFFSetDirectory(1) -> 0
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/three_ifd_middle_short.tif: Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 196865
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=4 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/three_ifd_middle_unknowntype.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] Incompatible type for "ImageLength"
+    TIFFReadDirectory #1 -> 0 (new errors=1 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=0 nextdiroff=268
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] Incompatible type for "ImageLength"
+    TIFFSetDirectory(1) -> 0
+    TIFFSetDirectory(2) -> 1
+  TOTAL errors=2 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    [ERROR] Incompatible type for "ImageLength"
+    TIFFReadDirectory #1 -> 0 (new errors=1 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=0 nextdiroff=268
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] Incompatible type for "ImageLength"
+    TIFFSetDirectory(1) -> 0
+    TIFFSetDirectory(2) -> 1
+  TOTAL errors=2 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/unknown_tag_unknown_type.tif ====
+  [mmap  mode]
+    [ERROR] Defined set_get_field_type of custom tag 65000 (Tag 65000) is TIFF_SETGET_UNDEFINED and thus tag is not read from file
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff3e3e3e px1=0xff3f3f3f px2=0xff404040 px3=0xff414141
+    -- TIFFReadDirectory #1 (nextdiroff=0)
+    TIFFReadDirectory #1 -> 0 (new errors=0 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    [ERROR] Defined set_get_field_type of custom tag 65000 (Tag 65000) is TIFF_SETGET_UNDEFINED and thus tag is not read from file
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 0
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=2 warnings=0
+  [stream mode]
+    [ERROR] Defined set_get_field_type of custom tag 65000 (Tag 65000) is TIFF_SETGET_UNDEFINED and thus tag is not read from file
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff3e3e3e px1=0xff3f3f3f px2=0xff404040 px3=0xff414141
+    -- TIFFReadDirectory #1 (nextdiroff=0)
+    TIFFReadDirectory #1 -> 0 (new errors=0 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    [ERROR] Defined set_get_field_type of custom tag 65000 (Tag 65000) is TIFF_SETGET_UNDEFINED and thus tag is not read from file
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 0
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=2 warnings=0
+
+==== /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/corrupt-ifd-work/samples/valid_multi.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    end of chain (dirs walked=2)
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=0 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff0c0c0c px1=0xff0d0d0d px2=0xff0e0e0e px3=0xff0f0f0f
+    -- TIFFReadDirectory #1 (nextdiroff=122)
+    TIFFReadDirectory #1 -> 1 (new errors=0 warnings=0)
+    dir 1: fields 4x4
+    dir 1: TIFFReadRGBAImage -> 1 px0=0xff808080 px1=0xff808080 px2=0xff808080 px3=0xff808080
+    end of chain (dirs walked=2)
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 1
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=0 warnings=0
+

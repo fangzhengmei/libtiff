@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -fsanitize=address,undefined CMakeFiles/ascii_tag.dir/ascii_tag.c.o -o ascii_tag  -Wl,-rpath,/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/asan-build/libtiff ../libtiff/libtiff.so.6.3.0 

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -fsanitize=address,undefined "CMakeFiles/tiff-grayscale.dir/tiff-grayscale.c.o" -o tiff-grayscale  -Wl,-rpath,/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/asan-build/libtiff ../../libtiff/libtiff.so.6.3.0 -lm 

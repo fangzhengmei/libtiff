@@ -1,0 +1,2366 @@
+==== tiffinfo -d ifd0_entry_oob.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744069414584604 bytes, expected 16.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d ifd0_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 8.
+exit=1
+==== tiffinfo -d ifd0_self_loop.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 0 has IFD looping to directory 0 at offset 0x8 (8).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=0
+==== tiffinfo -d ifd0_short_count.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+exit=1
+==== tiffinfo -d ifd0_truncated.tif ====
+TIFFFetchDirectory: Warning, Requested memory size for TIFF directory of 108 is greater than filesize 10. Memory not allocated, TIFF directory not read.
+TIFFReadDirectory: Failed to read directory at offset 8.
+exit=1
+==== tiffinfo -d ifd0_unknown_type.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageWidth".
+exit=1
+==== tiffinfo -d ifd1_entry_oob.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744069414584604 bytes, expected 16.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+exit=1
+==== tiffinfo -d ifd1_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d ifd1_short_count.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d ifd1_truncated.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744073709551512 bytes, expected 16.
+TIFFFetchDirectory: Can not read TIFF directory.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+exit=1
+==== tiffinfo -d ifd1_unknown_type.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageLength".
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d tail_loop_to_ifd0.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 1 has IFD looping to directory 0 at offset 0x8 (8).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d tail_ptr_into_pixels.tif ====
+TIFFFetchDirectory: Warning, Requested memory size for TIFF directory of 15408 is greater than filesize 268. Memory not allocated, TIFF directory not read.
+TIFFReadDirectory: Failed to read directory at offset 240.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d tail_ptr_past_eof.tif ====
+TIFFFetchDirectory: Can not read TIFF directory count.
+TIFFReadDirectory: Failed to read directory at offset 332.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d tail_self_loop.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 1 has IFD looping to directory 1 at offset 0x7a (122).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d valid_multi.tif ====
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d ifd0_entry_oob.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744069414584604 bytes, expected 16.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d ifd0_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 8.
+exit=1
+==== tiffinfo -d ifd0_self_loop.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 0 has IFD looping to directory 0 at offset 0x8 (8).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=0
+==== tiffinfo -d ifd0_short_count.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+exit=1
+==== tiffinfo -d ifd0_truncated.tif ====
+TIFFFetchDirectory: Warning, Requested memory size for TIFF directory of 108 is greater than filesize 10. Memory not allocated, TIFF directory not read.
+TIFFReadDirectory: Failed to read directory at offset 8.
+exit=1
+==== tiffinfo -d ifd0_unknown_type.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageWidth".
+exit=1
+==== tiffinfo -d ifd1_entry_oob.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744069414584604 bytes, expected 16.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+exit=1
+==== tiffinfo -d ifd1_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d ifd1_short_count.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d ifd1_truncated.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744073709551512 bytes, expected 16.
+TIFFFetchDirectory: Can not read TIFF directory.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+exit=1
+==== tiffinfo -d ifd1_unknown_type.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageLength".
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d tail_loop_to_ifd0.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 1 has IFD looping to directory 0 at offset 0x8 (8).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d tail_ptr_into_pixels.tif ====
+TIFFFetchDirectory: Warning, Requested memory size for TIFF directory of 15408 is greater than filesize 268. Memory not allocated, TIFF directory not read.
+TIFFReadDirectory: Failed to read directory at offset 240.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d tail_ptr_past_eof.tif ====
+TIFFFetchDirectory: Can not read TIFF directory count.
+TIFFReadDirectory: Failed to read directory at offset 332.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d tail_self_loop.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 1 has IFD looping to directory 1 at offset 0x7a (122).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d valid_multi.tif ====
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d ifd0_entry_oob.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744069414584604 bytes, expected 16.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d ifd0_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 8.
+exit=1
+==== tiffinfo -d ifd0_self_loop.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 0 has IFD looping to directory 0 at offset 0x8 (8).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=0
+==== tiffinfo -d ifd0_short_count.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+exit=1
+==== tiffinfo -d ifd0_truncated.tif ====
+TIFFFetchDirectory: Warning, Requested memory size for TIFF directory of 108 is greater than filesize 10. Memory not allocated, TIFF directory not read.
+TIFFReadDirectory: Failed to read directory at offset 8.
+exit=1
+==== tiffinfo -d ifd0_unknown_type.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageWidth".
+exit=1
+==== tiffinfo -d ifd1_entry_oob.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744069414584604 bytes, expected 16.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+exit=1
+==== tiffinfo -d ifd1_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d ifd1_short_count.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d ifd1_truncated.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744073709551512 bytes, expected 16.
+TIFFFetchDirectory: Can not read TIFF directory.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+exit=1
+==== tiffinfo -d ifd1_unknown_type.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageLength".
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d tail_loop_to_ifd0.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 1 has IFD looping to directory 0 at offset 0x8 (8).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d tail_ptr_into_pixels.tif ====
+TIFFFetchDirectory: Warning, Requested memory size for TIFF directory of 15408 is greater than filesize 268. Memory not allocated, TIFF directory not read.
+TIFFReadDirectory: Failed to read directory at offset 240.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d tail_ptr_past_eof.tif ====
+TIFFFetchDirectory: Can not read TIFF directory count.
+TIFFReadDirectory: Failed to read directory at offset 332.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d tail_self_loop.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 1 has IFD looping to directory 1 at offset 0x7a (122).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d valid_multi.tif ====
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d ifd0_entry_oob.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744069414584604 bytes, expected 16.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d ifd0_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 8.
+exit=1
+==== tiffinfo -d ifd0_self_loop.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 0 has IFD looping to directory 0 at offset 0x8 (8).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=0
+==== tiffinfo -d ifd0_short_count.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+exit=1
+==== tiffinfo -d ifd0_truncated.tif ====
+TIFFFetchDirectory: Warning, Requested memory size for TIFF directory of 108 is greater than filesize 10. Memory not allocated, TIFF directory not read.
+TIFFReadDirectory: Failed to read directory at offset 8.
+exit=1
+==== tiffinfo -d ifd0_unknown_type.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageWidth".
+exit=1
+==== tiffinfo -d ifd1_entry_oob.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744069414584604 bytes, expected 16.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+exit=1
+==== tiffinfo -d ifd1_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d ifd1_short_count.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d ifd1_truncated.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744073709551512 bytes, expected 16.
+TIFFFetchDirectory: Can not read TIFF directory.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+exit=1
+==== tiffinfo -d ifd1_unknown_type.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageLength".
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d tail_loop_to_ifd0.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 1 has IFD looping to directory 0 at offset 0x8 (8).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d tail_ptr_into_pixels.tif ====
+TIFFFetchDirectory: Warning, Requested memory size for TIFF directory of 15408 is greater than filesize 268. Memory not allocated, TIFF directory not read.
+TIFFReadDirectory: Failed to read directory at offset 240.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d tail_ptr_past_eof.tif ====
+TIFFFetchDirectory: Can not read TIFF directory count.
+TIFFReadDirectory: Failed to read directory at offset 332.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d tail_self_loop.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 1 has IFD looping to directory 1 at offset 0x7a (122).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d three_ifd_all_valid.tif ====
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+=== TIFF directory 2 ===
+TIFF Directory at offset 0x10c (268)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ c8 c8 c8 c8
+ c8 c8 c8 c8
+ c8 c8 c8 c8
+ c8 c8 c8 c8
+
+exit=0
+==== tiffinfo -d three_ifd_middle_overflow.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d three_ifd_middle_short.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d three_ifd_middle_unknowntype.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageLength".
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d valid_multi.tif ====
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d bigtiff_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 16.
+exit=1
+==== tiffinfo -d bigtiff_tail_past_eof.tif ====
+TIFFFetchDirectory: Can not read TIFF directory count.
+TIFFReadDirectory: Failed to read directory at offset 328.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x10 (16)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 4d 4d 4d 4d
+ 4d 4d 4d 4d
+ 4d 4d 4d 4d
+ 4d 4d 4d 4d
+
+exit=1
+==== tiffinfo -d bigtiff_valid.tif ====
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x10 (16)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 4d 4d 4d 4d
+ 4d 4d 4d 4d
+ 4d 4d 4d 4d
+ 4d 4d 4d 4d
+
+exit=0
+==== tiffinfo -d ifd0_entry_oob.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744069414584604 bytes, expected 16.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d ifd0_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 8.
+exit=1
+==== tiffinfo -d ifd0_self_loop.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 0 has IFD looping to directory 0 at offset 0x8 (8).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=0
+==== tiffinfo -d ifd0_short_count.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+exit=1
+==== tiffinfo -d ifd0_truncated.tif ====
+TIFFFetchDirectory: Warning, Requested memory size for TIFF directory of 108 is greater than filesize 10. Memory not allocated, TIFF directory not read.
+TIFFReadDirectory: Failed to read directory at offset 8.
+exit=1
+==== tiffinfo -d ifd0_unknown_type.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageWidth".
+exit=1
+==== tiffinfo -d ifd1_entry_oob.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744069414584604 bytes, expected 16.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+exit=1
+==== tiffinfo -d ifd1_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d ifd1_short_count.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d ifd1_truncated.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744073709551512 bytes, expected 16.
+TIFFFetchDirectory: Can not read TIFF directory.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+exit=1
+==== tiffinfo -d ifd1_unknown_type.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageLength".
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d tail_loop_to_ifd0.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 1 has IFD looping to directory 0 at offset 0x8 (8).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d tail_ptr_into_pixels.tif ====
+TIFFFetchDirectory: Warning, Requested memory size for TIFF directory of 15408 is greater than filesize 268. Memory not allocated, TIFF directory not read.
+TIFFReadDirectory: Failed to read directory at offset 240.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d tail_ptr_past_eof.tif ====
+TIFFFetchDirectory: Can not read TIFF directory count.
+TIFFReadDirectory: Failed to read directory at offset 332.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d tail_self_loop.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 1 has IFD looping to directory 1 at offset 0x7a (122).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d three_ifd_all_valid.tif ====
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+=== TIFF directory 2 ===
+TIFF Directory at offset 0x10c (268)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ c8 c8 c8 c8
+ c8 c8 c8 c8
+ c8 c8 c8 c8
+ c8 c8 c8 c8
+
+exit=0
+==== tiffinfo -d three_ifd_middle_overflow.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d three_ifd_middle_short.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d three_ifd_middle_unknowntype.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageLength".
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d unknown_tag_unknown_type.tif ====
+TIFFFetchNormalTag: Defined set_get_field_type of custom tag 65000 (Tag 65000) is TIFF_SETGET_UNDEFINED and thus tag is not read from file.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 32 33 34 35
+ 36 37 38 39
+ 3a 3b 3c 3d
+ 3e 3f 40 41
+
+exit=1
+==== tiffinfo -d valid_multi.tif ====
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d bigtiff_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 16.
+exit=1
+==== tiffinfo -d bigtiff_tail_past_eof.tif ====
+TIFFFetchDirectory: Can not read TIFF directory count.
+TIFFReadDirectory: Failed to read directory at offset 328.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x10 (16)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 4d 4d 4d 4d
+ 4d 4d 4d 4d
+ 4d 4d 4d 4d
+ 4d 4d 4d 4d
+
+exit=1
+==== tiffinfo -d bigtiff_valid.tif ====
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x10 (16)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 4d 4d 4d 4d
+ 4d 4d 4d 4d
+ 4d 4d 4d 4d
+ 4d 4d 4d 4d
+
+exit=0
+==== tiffinfo -d ifd0_entry_oob.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744069414584604 bytes, expected 16.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d ifd0_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 8.
+exit=1
+==== tiffinfo -d ifd0_self_loop.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 0 has IFD looping to directory 0 at offset 0x8 (8).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=0
+==== tiffinfo -d ifd0_short_count.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+exit=1
+==== tiffinfo -d ifd0_truncated.tif ====
+TIFFFetchDirectory: Warning, Requested memory size for TIFF directory of 108 is greater than filesize 10. Memory not allocated, TIFF directory not read.
+TIFFReadDirectory: Failed to read directory at offset 8.
+exit=1
+==== tiffinfo -d ifd0_unknown_type.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageWidth".
+exit=1
+==== tiffinfo -d ifd1_entry_oob.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744069414584604 bytes, expected 16.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+exit=1
+==== tiffinfo -d ifd1_overflow_count.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d ifd1_short_count.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d ifd1_truncated.tif ====
+TIFFFillStrip: Read error on strip 0; got 18446744073709551512 bytes, expected 16.
+TIFFFetchDirectory: Can not read TIFF directory.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+
+exit=1
+==== tiffinfo -d ifd1_unknown_type.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageLength".
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d tail_loop_to_ifd0.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 1 has IFD looping to directory 0 at offset 0x8 (8).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d tail_ptr_into_pixels.tif ====
+TIFFFetchDirectory: Warning, Requested memory size for TIFF directory of 15408 is greater than filesize 268. Memory not allocated, TIFF directory not read.
+TIFFReadDirectory: Failed to read directory at offset 240.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d tail_ptr_past_eof.tif ====
+TIFFFetchDirectory: Can not read TIFF directory count.
+TIFFReadDirectory: Failed to read directory at offset 332.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=1
+==== tiffinfo -d tail_self_loop.tif ====
+_TIFFCheckDirNumberAndOffset: Warning, TIFF directory 1 has IFD looping to directory 1 at offset 0x7a (122).
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0
+==== tiffinfo -d three_ifd_all_valid.tif ====
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+=== TIFF directory 2 ===
+TIFF Directory at offset 0x10c (268)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ c8 c8 c8 c8
+ c8 c8 c8 c8
+ c8 c8 c8 c8
+ c8 c8 c8 c8
+
+exit=0
+==== tiffinfo -d three_ifd_middle_overflow.tif ====
+TIFFFetchDirectory: Sanity check on directory count failed, this is probably not a valid IFD offset.
+TIFFReadDirectory: Failed to read directory at offset 122.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d three_ifd_middle_short.tif ====
+MissingRequired: TIFF directory is missing required "StripOffsets" field.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d three_ifd_middle_unknowntype.tif ====
+TIFFFetchNormalTag: Incompatible type for "ImageLength".
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+exit=1
+==== tiffinfo -d unknown_tag_unknown_type.tif ====
+TIFFFetchNormalTag: Defined set_get_field_type of custom tag 65000 (Tag 65000) is TIFF_SETGET_UNDEFINED and thus tag is not read from file.
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 32 33 34 35
+ 36 37 38 39
+ 3a 3b 3c 3d
+ 3e 3f 40 41
+
+exit=1
+==== tiffinfo -d valid_multi.tif ====
+=== TIFF directory 0 ===
+TIFF Directory at offset 0x8 (8)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 00 01 02 03
+ 04 05 06 07
+ 08 09 0a 0b
+ 0c 0d 0e 0f
+
+=== TIFF directory 1 ===
+TIFF Directory at offset 0x7a (122)
+  Image Width: 4 Image Length: 4
+  Bits/Sample: 8
+  Compression Scheme: None
+  Photometric Interpretation: min-is-black
+  Samples/Pixel: 1
+  Rows/Strip: 4
+  Planar Configuration: single image plane
+Strip 0:
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+ 80 80 80 80
+
+exit=0

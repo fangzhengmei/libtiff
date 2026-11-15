@@ -1,0 +1,102 @@
+==== samples/unknown_tag_unknown_type.tif ====
+  [mmap  mode]
+    [ERROR] Defined set_get_field_type of custom tag 65000 (Tag 65000) is TIFF_SETGET_UNDEFINED and thus tag is not read from file
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff3e3e3e px1=0xff3f3f3f px2=0xff404040 px3=0xff414141
+    -- TIFFReadDirectory #1 (nextdiroff=0)
+    TIFFReadDirectory #1 -> 0 (new errors=0 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    [ERROR] Defined set_get_field_type of custom tag 65000 (Tag 65000) is TIFF_SETGET_UNDEFINED and thus tag is not read from file
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 0
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=2 warnings=0
+  [stream mode]
+    [ERROR] Defined set_get_field_type of custom tag 65000 (Tag 65000) is TIFF_SETGET_UNDEFINED and thus tag is not read from file
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff3e3e3e px1=0xff3f3f3f px2=0xff404040 px3=0xff414141
+    -- TIFFReadDirectory #1 (nextdiroff=0)
+    TIFFReadDirectory #1 -> 0 (new errors=0 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    [ERROR] Defined set_get_field_type of custom tag 65000 (Tag 65000) is TIFF_SETGET_UNDEFINED and thus tag is not read from file
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 0
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=2 warnings=0
+
+==== samples/bigtiff_valid.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff4d4d4d px1=0xff4d4d4d px2=0xff4d4d4d px3=0xff4d4d4d
+    -- TIFFReadDirectory #1 (nextdiroff=0)
+    TIFFReadDirectory #1 -> 0 (new errors=0 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 0
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=0 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff4d4d4d px1=0xff4d4d4d px2=0xff4d4d4d px3=0xff4d4d4d
+    -- TIFFReadDirectory #1 (nextdiroff=0)
+    TIFFReadDirectory #1 -> 0 (new errors=0 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    TIFFSetDirectory(1) -> 0
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=0 warnings=0
+
+==== samples/bigtiff_overflow_count.tif ====
+  [mmap  mode]
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 16
+    TIFFOpen FAILED (errors=2 warnings=0) - first IFD could not be read, no directories available
+  [stream mode]
+    [ERROR] Sanity check on directory count failed, this is probably not a valid IFD offset
+    [ERROR] Failed to read directory at offset 16
+    TIFFOpen FAILED (errors=2 warnings=0) - first IFD could not be read, no directories available
+
+==== samples/bigtiff_tail_past_eof.tif ====
+  [mmap  mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff4d4d4d px1=0xff4d4d4d px2=0xff4d4d4d px3=0xff4d4d4d
+    -- TIFFReadDirectory #1 (nextdiroff=328)
+    [ERROR] Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 328
+    TIFFReadDirectory #1 -> 0 (new errors=2 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 328
+    TIFFSetDirectory(1) -> 0
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_dir.c:1950: samples/bigtiff_tail_past_eof.tif: Error fetching directory count
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=5 warnings=0
+  [stream mode]
+    TIFFOpen OK; first IFD already read inside open
+    dir 0: fields 4x4
+    dir 0: TIFFReadRGBAImage -> 1 px0=0xff4d4d4d px1=0xff4d4d4d px2=0xff4d4d4d px3=0xff4d4d4d
+    -- TIFFReadDirectory #1 (nextdiroff=328)
+    [ERROR] samples/bigtiff_tail_past_eof.tif: Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 328
+    TIFFReadDirectory #1 -> 0 (new errors=2 warnings=0)
+    chain stopped at dir 1; TIFFLastDirectory=1 nextdiroff=0
+    TIFFSetDirectory(0) -> 1
+    after SetDirectory(0): width=4
+    [ERROR] samples/bigtiff_tail_past_eof.tif: Can not read TIFF directory count
+    [ERROR] Failed to read directory at offset 328
+    TIFFSetDirectory(1) -> 0
+    [ERROR] /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_dir.c:2020: samples/bigtiff_tail_past_eof.tif: Error fetching directory count
+    TIFFSetDirectory(2) -> 0
+  TOTAL errors=5 warnings=0
+

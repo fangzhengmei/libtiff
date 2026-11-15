@@ -1,0 +1,285 @@
+[  2%] Building C object libtiff/CMakeFiles/tiff.dir/tif_close.c.o
+[  2%] Building C object libtiff/CMakeFiles/tiff.dir/tif_color.c.o
+[  4%] Building C object libtiff/CMakeFiles/tiff.dir/tif_dirinfo.c.o
+[  4%] Building C object libtiff/CMakeFiles/tiff.dir/tif_aux.c.o
+[  5%] Building C object libtiff/CMakeFiles/tiff.dir/tif_compress.c.o
+[  6%] Building C object libtiff/CMakeFiles/tiff.dir/tif_dumpmode.c.o
+[  3%] Building C object libtiff/CMakeFiles/tiff.dir/tif_codec.c.o
+[  9%] Building C object libtiff/CMakeFiles/tiff.dir/tif_dirread.c.o
+[  8%] Building C object libtiff/CMakeFiles/tiff.dir/tif_dir.c.o
+[  9%] Building C object libtiff/CMakeFiles/tiff.dir/tif_dirwrite.c.o
+[  9%] Building C object libtiff/CMakeFiles/tiff.dir/tif_error.c.o
+[ 10%] Building C object libtiff/CMakeFiles/tiff.dir/tif_extension.c.o
+[ 11%] Building C object libtiff/CMakeFiles/tiff.dir/tif_fax3.c.o
+[ 12%] Building C object libtiff/CMakeFiles/tiff.dir/tif_fax3sm.c.o
+[ 13%] Building C object libtiff/CMakeFiles/tiff.dir/tif_getimage.c.o
+[ 14%] Building C object libtiff/CMakeFiles/tiff.dir/tif_flush.c.o
+[ 15%] Building C object libtiff/CMakeFiles/tiff.dir/tif_hash_set.c.o
+[ 16%] Building C object libtiff/CMakeFiles/tiff.dir/tif_jbig.c.o
+[ 17%] Building C object libtiff/CMakeFiles/tiff.dir/tif_jpeg.c.o
+[ 18%] Building C object libtiff/CMakeFiles/tiff.dir/tif_jpeg_12.c.o
+[ 18%] Building C object libtiff/CMakeFiles/tiff.dir/tif_lerc.c.o
+[ 19%] Building C object libtiff/CMakeFiles/tiff.dir/tif_luv.c.o
+[ 20%] Building C object libtiff/CMakeFiles/tiff.dir/tif_lzma.c.o
+[ 21%] Building C object libtiff/CMakeFiles/tiff.dir/tif_lzw.c.o
+[ 22%] Building C object libtiff/CMakeFiles/tiff.dir/tif_next.c.o
+[ 23%] Building C object libtiff/CMakeFiles/tiff.dir/tif_ojpeg.c.o
+[ 25%] Building C object libtiff/CMakeFiles/tiff.dir/tif_packbits.c.o
+[ 25%] Building C object libtiff/CMakeFiles/tiff.dir/tif_open.c.o
+[ 26%] Building C object libtiff/CMakeFiles/tiff.dir/tif_pixarlog.c.o
+[ 27%] Building C object libtiff/CMakeFiles/tiff.dir/tif_predict.c.o
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c: In function ‘Fax3Encode1DRow’:
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:963:23: warning: inlining failed in call to ‘find0span’: --param max-inline-insns-single limit reached [-Winline]
+  963 | static inline int32_t find0span(unsigned char *bp, int32_t bs, int32_t be)
+      |                       ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1128:16: note: called from here
+ 1128 |         span = find0span(bp, (int32_t)bs, (int32_t)bits); /* white span */
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1031:23: warning: inlining failed in call to ‘find1span’: --param max-inline-insns-single limit reached [-Winline]
+ 1031 | static inline int32_t find1span(unsigned char *bp, int32_t bs, int32_t be)
+      |                       ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1134:16: note: called from here
+ 1134 |         span = find1span(bp, (int32_t)bs, (int32_t)bits); /* black span */
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ 27%] Building C object libtiff/CMakeFiles/tiff.dir/tif_print.c.o
+[ 28%] Building C object libtiff/CMakeFiles/tiff.dir/tif_read.c.o
+[ 29%] Building C object libtiff/CMakeFiles/tiff.dir/tif_strip.c.o
+[ 30%] Building C object libtiff/CMakeFiles/tiff.dir/tif_swab.c.o
+[ 31%] Building C object libtiff/CMakeFiles/tiff.dir/tif_thunder.c.o
+[ 32%] Building C object libtiff/CMakeFiles/tiff.dir/tif_tile.c.o
+[ 33%] Building C object libtiff/CMakeFiles/tiff.dir/tif_version.c.o
+[ 34%] Building C object libtiff/CMakeFiles/tiff.dir/tif_warning.c.o
+[ 35%] Building C object libtiff/CMakeFiles/tiff.dir/tif_webp.c.o
+[ 36%] Building C object libtiff/CMakeFiles/tiff.dir/tif_write.c.o
+[ 37%] Building C object libtiff/CMakeFiles/tiff.dir/tif_zip.c.o
+[ 37%] Building C object libtiff/CMakeFiles/tiff.dir/tif_zstd.c.o
+[ 38%] Building C object libtiff/CMakeFiles/tiff.dir/tif_unix.c.o
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c: In function ‘Fax3Encode2DRow’:
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1031:23: warning: inlining failed in call to ‘find1span’: --param max-inline-insns-single limit reached [-Winline]
+ 1031 | static inline int32_t find1span(unsigned char *bp, int32_t bs, int32_t be)
+      |                       ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1107:22: note: called from here
+ 1107 |     (_bs + (_color ? find1span(_cp, _bs, _be) : find0span(_cp, _bs, _be)))
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1113:18: note: in expansion of macro ‘finddiff’
+ 1113 |     (_bs < _be ? finddiff(_cp, _bs, _be, _color) : _be)
+      |                  ^~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1183:24: note: in expansion of macro ‘finddiff2’
+ 1183 |         b2 = (uint32_t)finddiff2(rp, (int32_t)b1, (int32_t)bits,
+      |                        ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:963:23: warning: inlining failed in call to ‘find0span’: --param max-inline-insns-single limit reached [-Winline]
+  963 | static inline int32_t find0span(unsigned char *bp, int32_t bs, int32_t be)
+      |                       ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1107:49: note: called from here
+ 1107 |     (_bs + (_color ? find1span(_cp, _bs, _be) : find0span(_cp, _bs, _be)))
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1113:18: note: in expansion of macro ‘finddiff’
+ 1113 |     (_bs < _be ? finddiff(_cp, _bs, _be, _color) : _be)
+      |                  ^~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1183:24: note: in expansion of macro ‘finddiff2’
+ 1183 |         b2 = (uint32_t)finddiff2(rp, (int32_t)b1, (int32_t)bits,
+      |                        ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1031:23: warning: inlining failed in call to ‘find1span’: --param max-inline-insns-single limit reached [-Winline]
+ 1031 | static inline int32_t find1span(unsigned char *bp, int32_t bs, int32_t be)
+      |                       ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1107:22: note: called from here
+ 1107 |     (_bs + (_color ? find1span(_cp, _bs, _be) : find0span(_cp, _bs, _be)))
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1113:18: note: in expansion of macro ‘finddiff’
+ 1113 |     (_bs < _be ? finddiff(_cp, _bs, _be, _color) : _be)
+      |                  ^~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1197:32: note: in expansion of macro ‘finddiff2’
+ 1197 |                 a2 = (uint32_t)finddiff2(bp, (int32_t)a1, (int32_t)bits,
+      |                                ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:963:23: warning: inlining failed in call to ‘find0span’: --param max-inline-insns-single limit reached [-Winline]
+  963 | static inline int32_t find0span(unsigned char *bp, int32_t bs, int32_t be)
+      |                       ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1107:49: note: called from here
+ 1107 |     (_bs + (_color ? find1span(_cp, _bs, _be) : find0span(_cp, _bs, _be)))
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1113:18: note: in expansion of macro ‘finddiff’
+ 1113 |     (_bs < _be ? finddiff(_cp, _bs, _be, _color) : _be)
+      |                  ^~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1197:32: note: in expansion of macro ‘finddiff2’
+ 1197 |                 a2 = (uint32_t)finddiff2(bp, (int32_t)a1, (int32_t)bits,
+      |                                ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1031:23: warning: inlining failed in call to ‘find1span’: --param max-inline-insns-single limit reached [-Winline]
+ 1031 | static inline int32_t find1span(unsigned char *bp, int32_t bs, int32_t be)
+      |                       ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1107:22: note: called from here
+ 1107 |     (_bs + (_color ? find1span(_cp, _bs, _be) : find0span(_cp, _bs, _be)))
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1232:24: note: in expansion of macro ‘finddiff’
+ 1232 |         a1 = (uint32_t)finddiff(bp, (int32_t)a0, (int32_t)bits,
+      |                        ^~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:963:23: warning: inlining failed in call to ‘find0span’: --param max-inline-insns-single limit reached [-Winline]
+  963 | static inline int32_t find0span(unsigned char *bp, int32_t bs, int32_t be)
+      |                       ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1107:49: note: called from here
+ 1107 |     (_bs + (_color ? find1span(_cp, _bs, _be) : find0span(_cp, _bs, _be)))
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1232:24: note: in expansion of macro ‘finddiff’
+ 1232 |         a1 = (uint32_t)finddiff(bp, (int32_t)a0, (int32_t)bits,
+      |                        ^~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1031:23: warning: inlining failed in call to ‘find1span’: --param max-inline-insns-single limit reached [-Winline]
+ 1031 | static inline int32_t find1span(unsigned char *bp, int32_t bs, int32_t be)
+      |                       ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1107:22: note: called from here
+ 1107 |     (_bs + (_color ? find1span(_cp, _bs, _be) : find0span(_cp, _bs, _be)))
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1234:24: note: in expansion of macro ‘finddiff’
+ 1234 |         b1 = (uint32_t)finddiff(rp, (int32_t)a0, (int32_t)bits,
+      |                        ^~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:963:23: warning: inlining failed in call to ‘find0span’: --param max-inline-insns-single limit reached [-Winline]
+  963 | static inline int32_t find0span(unsigned char *bp, int32_t bs, int32_t be)
+      |                       ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1107:49: note: called from here
+ 1107 |     (_bs + (_color ? find1span(_cp, _bs, _be) : find0span(_cp, _bs, _be)))
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1234:24: note: in expansion of macro ‘finddiff’
+ 1234 |         b1 = (uint32_t)finddiff(rp, (int32_t)a0, (int32_t)bits,
+      |                        ^~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1031:23: warning: inlining failed in call to ‘find1span’: --param max-inline-insns-single limit reached [-Winline]
+ 1031 | static inline int32_t find1span(unsigned char *bp, int32_t bs, int32_t be)
+      |                       ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1107:22: note: called from here
+ 1107 |     (_bs + (_color ? find1span(_cp, _bs, _be) : find0span(_cp, _bs, _be)))
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1236:24: note: in expansion of macro ‘finddiff’
+ 1236 |         b1 = (uint32_t)finddiff(rp, (int32_t)b1, (int32_t)bits,
+      |                        ^~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:963:23: warning: inlining failed in call to ‘find0span’: --param max-inline-insns-single limit reached [-Winline]
+  963 | static inline int32_t find0span(unsigned char *bp, int32_t bs, int32_t be)
+      |                       ^~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1107:49: note: called from here
+ 1107 |     (_bs + (_color ? find1span(_cp, _bs, _be) : find0span(_cp, _bs, _be)))
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~
+/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tif_fax3.c:1236:24: note: in expansion of macro ‘finddiff’
+ 1236 |         b1 = (uint32_t)finddiff(rp, (int32_t)b1, (int32_t)bits,
+      |                        ^~~~~~~~
+[ 39%] Linking C shared library libtiff.so
+[ 39%] Built target tiff
+[ 40%] Building C object tools/CMakeFiles/rgb2ycbcr.dir/rgb2ycbcr.c.o
+[ 41%] Building C object tools/CMakeFiles/raw2tiff.dir/raw2tiff.c.o
+[ 42%] Building C object tools/CMakeFiles/ppm2tiff.dir/ppm2tiff.c.o
+[ 43%] Building C object tools/CMakeFiles/pal2rgb.dir/pal2rgb.c.o
+[ 43%] Building CXX object libtiff/CMakeFiles/tiffxx.dir/tif_stream.cxx.o
+[ 44%] Building C object tools/CMakeFiles/tiff2pdf.dir/tiff2pdf.c.o
+[ 45%] Building C object tools/CMakeFiles/fax2tiff.dir/fax2tiff.c.o
+[ 46%] Building C object tools/CMakeFiles/tiff2ps.dir/tiff2ps.c.o
+[ 47%] Building C object tools/CMakeFiles/fax2ps.dir/fax2ps.c.o
+[ 48%] Building C object tools/CMakeFiles/tiff2bw.dir/tiff2bw.c.o
+[ 49%] Building C object tools/CMakeFiles/thumbnail.dir/thumbnail.c.o
+[ 49%] Building C object tools/CMakeFiles/tiff2rgba.dir/tiff2rgba.c.o
+In file included from /usr/include/stdio.h:980,
+                 from /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tiffio.h:284,
+                 from /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/tools/tiff_tools.h:8,
+                 from /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/tools/tiff2ps.c:27:
+In function ‘fprintf’,
+    inlined from ‘PhotoshopBanner’ at /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/tools/tiff2ps.c:709:5:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: warning: null format string [-Wformat-overflow=]
+   79 |   return __fprintf_chk (__stream, __USE_FORTIFY_LEVEL - 1, __fmt,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   80 |                         __va_arg_pack ());
+      |                         ~~~~~~~~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: warning: null format string [-Wformat-overflow=]
+[ 51%] Linking CXX executable fax2tiff
+[ 51%] Linking CXX executable rgb2ycbcr
+[ 52%] Linking CXX executable ppm2tiff
+[ 53%] Linking CXX executable fax2ps
+[ 54%] Building C object tools/CMakeFiles/tiff2rgba.dir/tiff_tools.c.o
+[ 55%] Linking CXX executable pal2rgb
+[ 55%] Built target fax2tiff
+[ 55%] Built target rgb2ycbcr
+[ 56%] Linking CXX executable tiff2rgba
+[ 56%] Built target ppm2tiff
+[ 56%] Built target fax2ps
+[ 57%] Building C object tools/CMakeFiles/tiff2ps.dir/tiff_tools.c.o
+[ 58%] Building C object tools/CMakeFiles/tiffcmp.dir/tiffcmp.c.o
+[ 59%] Building C object tools/CMakeFiles/tiffcp.dir/tiffcp.c.o
+[ 60%] Building C object tools/CMakeFiles/tiffcrop.dir/tiffcrop.c.o
+[ 61%] Linking CXX executable tiff2bw
+[ 61%] Built target pal2rgb
+[ 62%] Linking CXX shared library libtiffxx.so
+[ 63%] Building C object tools/CMakeFiles/tiffdither.dir/tiffdither.c.o
+[ 64%] Linking CXX executable thumbnail
+[ 64%] Built target tiff2rgba
+[ 65%] Building C object tools/CMakeFiles/tiff2pdf.dir/tiff_tools.c.o
+[ 66%] Linking CXX executable raw2tiff
+[ 67%] Building C object tools/CMakeFiles/tiffcp.dir/tiff_tools.c.o
+[ 67%] Built target tiff2bw
+[ 68%] Building C object tools/CMakeFiles/tiffdump.dir/tiffdump.c.o
+[ 68%] Built target tiffxx
+[ 68%] Built target thumbnail
+[ 69%] Building C object tools/CMakeFiles/tiffcrop.dir/tiff_tools.c.o
+[ 70%] Building C object tools/CMakeFiles/tiffinfo.dir/tiffinfo.c.o
+[ 70%] Built target raw2tiff
+In file included from /usr/include/stdio.h:980,
+                 from /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/tools/tiffdump.c:31:
+In function ‘vfprintf’,
+    inlined from ‘vError’ at /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/tools/tiffdump.c:962:5:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:10: warning: null format string [-Wformat-overflow=]
+  109 |   return __vfprintf_chk (__stream, __USE_FORTIFY_LEVEL - 1, __fmt, __ap);
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:10: warning: null format string [-Wformat-overflow=]
+[ 71%] Linking CXX executable tiffdither
+[ 72%] Linking CXX executable tiffcmp
+[ 73%] Building C object tools/CMakeFiles/tiffmedian.dir/tiffmedian.c.o
+[ 74%] Building C object tools/CMakeFiles/tiffset.dir/tiffset.c.o
+[ 75%] Building C object tools/CMakeFiles/tiffsplit.dir/tiffsplit.c.o
+[ 76%] Building C object tools/CMakeFiles/tiffinfo.dir/tiff_tools.c.o
+[ 76%] Built target tiffdither
+[ 76%] Built target tiffcmp
+[ 77%] Building C object tools/CMakeFiles/tiffset.dir/tiff_tools.c.o
+[ 78%] Building C object tools/CMakeFiles/tiff_mkg3states.dir/mkg3states.c.o
+[ 78%] Building C object contrib/addtiffo/CMakeFiles/addtiffo.dir/addtiffo.c.o
+[ 78%] Linking CXX executable tiffinfo
+[ 79%] Building C object contrib/dbs/CMakeFiles/tiff-bi.dir/tiff-bi.c.o
+[ 80%] Building C object tools/CMakeFiles/tiffsplit.dir/tiff_tools.c.o
+[ 81%] Linking CXX executable tiff_mkg3states
+[ 82%] Building C object contrib/addtiffo/CMakeFiles/addtiffo.dir/tif_overview.c.o
+[ 83%] Linking CXX executable tiff-bi
+[ 84%] Linking CXX executable tiffset
+[ 84%] Built target tiffinfo
+[ 85%] Building C object contrib/addtiffo/CMakeFiles/addtiffo.dir/tif_ovrcache.c.o
+[ 86%] Linking CXX executable tiffdump
+[ 86%] Built target tiff_mkg3states
+[ 87%] Linking CXX executable tiffsplit
+[ 88%] Building C object contrib/dbs/CMakeFiles/tiff-grayscale.dir/tiff-grayscale.c.o
+[ 88%] Linking CXX executable tiffcp
+[ 88%] Built target tiff-bi
+[ 88%] Built target tiffset
+[ 89%] Building C object contrib/dbs/CMakeFiles/tiff-palette.dir/tiff-palette.c.o
+[ 89%] Built target tiffdump
+[ 89%] Building C object contrib/dbs/CMakeFiles/tiff-rgb.dir/tiff-rgb.c.o
+[ 89%] Built target tiffsplit
+[ 90%] Linking CXX executable tiff-grayscale
+[ 91%] Building C object contrib/iptcutil/CMakeFiles/iptcutil.dir/iptcutil.c.o
+[ 91%] Built target tiffcp
+[ 91%] Built target tiff-grayscale
+[ 92%] Linking CXX executable tiff-rgb
+[ 93%] Linking CXX executable tiff-palette
+[ 94%] Linking CXX executable iptcutil
+[ 94%] Built target tiff-rgb
+[ 95%] Linking CXX executable addtiffo
+[ 95%] Built target tiff-palette
+[ 95%] Built target iptcutil
+[ 95%] Built target addtiffo
+In file included from /usr/include/stdio.h:980,
+                 from /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/libtiff/tiffio.h:284,
+                 from /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/tools/tiff_tools.h:8,
+                 from /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/tools/tiffcrop.c:132:
+In function ‘vfprintf’,
+    inlined from ‘dump_info’ at /srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/tools/tiffcrop.c:3514:9:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:10: warning: null format string [-Wformat-overflow=]
+  109 |   return __vfprintf_chk (__stream, __USE_FORTIFY_LEVEL - 1, __fmt, __ap);
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:109:10: warning: null format string [-Wformat-overflow=]
+[ 96%] Linking CXX executable tiff2ps
+[ 96%] Built target tiff2ps
+[ 97%] Linking CXX executable tiffmedian
+[ 97%] Built target tiffmedian
+[ 98%] Linking CXX executable tiff2pdf
+[ 98%] Built target tiff2pdf
+[100%] Linking CXX executable tiffcrop
+[100%] Built target tiffcrop

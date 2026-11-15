@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -fsanitize=address,undefined CMakeFiles/addtiffo.dir/addtiffo.c.o CMakeFiles/addtiffo.dir/tif_overview.c.o CMakeFiles/addtiffo.dir/tif_ovrcache.c.o -o addtiffo  -Wl,-rpath,/srv/fb2/fangzhengmei/0062-libtiff-10-6b469d15/asan-build/libtiff ../../libtiff/libtiff.so.6.3.0 

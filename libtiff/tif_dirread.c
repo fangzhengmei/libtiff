@@ -4374,6 +4374,15 @@ int TIFFReadDirectory(TIFF *tif)
         TIFFErrorExtR(tif, module,
                       "Failed to read directory at offset %" PRIu64,
                       nextdiroff);
+        /* The fetch failed before TIFFFreeDirectory()/TIFFDefaultDirectory()
+         * below could run, so tif_dir still describes the PREVIOUS directory
+         * while tif_diroff already points at the failed offset. A client that
+         * ignores the 0 return value would otherwise decode the previous
+         * image through this handle. Reset the directory to a clean default
+         * state so no stale geometry, strip arrays or field bits survive. */
+        TIFFFreeDirectory(tif);
+        TIFFDefaultDirectory(tif);
+        tif->tif_dir.td_iswrittentofile = TRUE;
         return 0;
     }
     /* Set global values after a valid directory has been fetched.
@@ -6148,8 +6157,28 @@ static uint16_t TIFFFetchDirectory(TIFF *tif, uint64_t diroff,
                               "probably not a valid IFD offset");
                 return 0;
             }
+            /* Reject values that cannot be represented by the uint16_t
+             * directory count before the truncation below. The > 4096 check
+             * already guarantees this today, but keep an explicit guard so a
+             * future change to that limit cannot reintroduce silent integer
+             * truncation of a 64-bit count. */
+            if (dircount64 > 0xFFFF)
+            {
+                TIFFErrorExtR(tif, module,
+                              "Sanity check on directory count failed, count "
+                              "%" PRIu64 " exceeds 65535",
+                              dircount64);
+                return 0;
+            }
             dircount16 = (uint16_t)dircount64;
             dirsize = 20;
+        }
+        if (dircount16 == 0)
+        {
+            TIFFErrorExtR(tif, module,
+                          "Sanity check on directory count failed, zero tag "
+                          "directories not supported");
+            return 0;
         }
         origdir = _TIFFCheckMalloc(tif, dircount16, dirsize,
                                    "to read TIFF directory");
@@ -6253,6 +6282,16 @@ static uint16_t TIFFFetchDirectory(TIFF *tif, uint64_t diroff,
                 TIFFErrorExtR(tif, module,
                               "Sanity check on directory count failed, this is "
                               "probably not a valid IFD offset");
+                return 0;
+            }
+            /* Explicit guard against uint16_t truncation; see the matching
+             * check in the streaming path above. */
+            if (dircount64 > 0xFFFF)
+            {
+                TIFFErrorExtR(tif, module,
+                              "Sanity check on directory count failed, count "
+                              "%" PRIu64 " exceeds 65535",
+                              dircount64);
                 return 0;
             }
             dircount16 = (uint16_t)dircount64;
